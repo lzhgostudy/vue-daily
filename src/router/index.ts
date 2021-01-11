@@ -22,7 +22,7 @@ const routes: Array<RouteConfig> = [
   {
     path: "/base",
     name: "Base",
-    component: () => import("../vuejs/Base.vue")
+    component: () => import("../vue2js/Base.vue")
   }
 ];
 

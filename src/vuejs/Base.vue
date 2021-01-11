@@ -13,6 +13,14 @@
     <form v-on:submit.prevent="onSubmit">
       <input type="text" name="test" placeholder="会车触发onSubmit" />
     </form>
+    <h1>计算属性</h1>
+    <div>
+      <p>Original message: {{ message }}</p>
+      <p>Computed reversed message: {{ reversedMesssage }}</p>
+    </div>
+    <h1>Class与Style绑定</h1>
+    <h2># 对象语法</h2>
+    <div :class="{ active: isActive }">isActive</div>
   </div>
 </template>
 <script>
@@ -22,8 +30,18 @@ export default {
     return {
       msg: "信息",
       msg2: "信息2",
-      rawHtml: '<span style="color:red">This should be red.</span>'
+      rawHtml: '<span style="color:red">This should be red.</span>',
+      message: "Hello",
+      isActive: false
     };
+  },
+  computed: {
+    reversedMesssage: function() {
+      return this.message
+        .split("")
+        .reverse()
+        .join("");
+    }
   },
   methods: {
     changeMsg2() {
@@ -35,3 +53,8 @@ export default {
   }
 };
 </script>
+<style lang="scss" scoped>
+.active {
+  text-decoration: underline;
+}
+</style>
